@@ -2,27 +2,21 @@ package Implementaciones;
 
 import java.util.*;
 
-import DAO.PedidoDAO;
+import DAO.DAO;
+
 import PrimerasClases.Pedido;
 
-public class PedidoDAOImpl implements PedidoDAO {
+public class PedidoDAOImpl implements DAO<Pedido> {
 	
-	List<Pedido> pedido;
+	List<Pedido> pedido = new ArrayList<Pedido>();
 	
 	public PedidoDAOImpl() {
 		
-		pedido = new ArrayList<Pedido>();
 		Pedido pedido1 = new Pedido(258, "29/05/2008", "Entregado");
 		Pedido pedido2 = new Pedido(320, "30/07/2010", "Entregado");
 		pedido.add(pedido1);
 		pedido.add(pedido2);
 			
-	}
-
-	public void deletePedido(int ID) {
-		pedido.remove(((Pedido) pedido).getID());
-		System.out.println("Pedido: estado " + ((Pedido) pedido).getEstado() + ", borrado de la base de datos");
-		
 	}
 	
 	public List<Pedido> getAllPedidos() {
@@ -30,23 +24,33 @@ public class PedidoDAOImpl implements PedidoDAO {
 		return pedido;
 	}
 
-	@Override
-	public Pedido getPedido(int ID) {
-
-		return pedido.get(ID);
-	}
 
 	public void updatePedido(Pedido pedido) {
 		
 	}
 
 	@Override
-	public void deletePedido(Pedido pedido) {
+	public Pedido getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Pedido t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	
-	
+	@Override
+	public void delete(Pedido t) {
+		
+		pedido.remove();
+		
+	}
 
+	public List<Pedido> ListarTodos() {
+		
+		return pedido;
+	}
+	
 }

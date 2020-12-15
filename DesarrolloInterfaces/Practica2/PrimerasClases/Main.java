@@ -1,21 +1,27 @@
 package PrimerasClases;
 
-import java.util.*;
+import java.util.List;
 
-import DAO.PedidoDAO;
+import DAO.DAO;
 import Implementaciones.PedidoDAOImpl;
+
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		PedidoDAO pedidoDAO = new PedidoDAOImpl();
-		
-		List<Pedido> Mispedidos;
-		Mispedidos = pedidoDAO.getAllPedidos();
+		DAO<Pedido> DAOpedido = new PedidoDAOImpl();
+		List<Pedido> Mispedidos = DAOpedido.ListarTodos();
 		
 		
-		System.out.println(Mispedidos);
+		for (Pedido p : Mispedidos) {
+			
+			System.out.println(p.toString());
+			
+		}
+		
+		//Eliminar un pedido
+		
 		
 		
 
